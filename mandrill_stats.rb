@@ -10,11 +10,11 @@ templates_to_query = [
 ]
 
 templates_to_query.each do |template|
-  begin 
-    results = mandrill.templates.time_series template
+  begin
     total_sent = 0
     total_unique_open = 0
     total_unique_clicks = 0
+    results = mandrill.templates.time_series template
     results.each do |data|
       total_sent += data["sent"]
       total_unique_open += data["unique_opens"]
